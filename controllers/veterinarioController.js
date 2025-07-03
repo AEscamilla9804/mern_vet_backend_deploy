@@ -60,7 +60,7 @@ const confirmar = async (req, res) => {
 };
 
 const autenticar = async (req, res) => {
-    const { email, password, telefono, web } = req.body;
+    const { email, password } = req.body;
 
     // Comprobar si el ususario existe
     const usuario = await Veterinario.findOne({email});
