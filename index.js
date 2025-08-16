@@ -12,18 +12,22 @@ dotenv.config();
 
 conectarDB();
 
-const dominiosPermitidos = [process.env.FRONTEND_URL];
+// CORS allowed domains
+const allowedDomains = [
+  'https://apv-mern-aescamilla.netlify.app',
+  'http://localhost:5173' // dev
+];
 
 const corsOptions = {
-    origin: function(origin, callback) {
-        if (dominiosPermitidos.indexOf(origin) !== -1) {
-            // El origen del request está permitido
-            callback(null, true);
-        } else {
-            callback(new Error('No permitido por CORS'));
-        }
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, same server)
+    if (!origin || allowedDomains.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS policy'));
     }
-}
+  }
+};
 
 app.use(cors(corsOptions));
 
