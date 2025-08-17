@@ -52,7 +52,7 @@ backend/
 1. Clona el repositorio
 
 git clone https://github.com/aescamilla9804/mern_vet_backend_deploy.git
-cd anime-api-backend
+cd mern_vet_frontend_deploy
 
 2. Instala las dependencias
 
